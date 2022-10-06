@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        Text("Hello, world!")
-            .padding()
+  @State private var isOn: Bool = false
+  var body: some View {
+    VStack {
+      Toggle("트랜지션 토글", isOn: $isOn)
+      Spacer()
+      if isOn {
+        Rectangle()
+          .foregroundColor(.blue)
+          .animation(.easeIn) // <-
+          .transition(.slide) // <-
+      }
     }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+  }
 }
