@@ -14,10 +14,26 @@ struct ContentView: View {
       Toggle("트랜지션 토글", isOn: $isOn)
       Spacer()
       if isOn {
+//        Rectangle()
+//          .foregroundColor(.blue)
+//        .animation(.easeIn)
+//        .transition(.slide)
+//        Rectangle()
+//          .foregroundColor(.blue)
+//          .animation(.easeIn)
+//          .transition(.move(edge: .bottom))
+//          Rectangle()
+//            .foregroundColor(.blue)
+          //  .animation(.easeIn)
+//            .transition(.opacity.animation(.easeIn))
+//        Rectangle()
+//          .foregroundColor(.blue)
+        //  .animation(.easeIn)
+//          .transition(.scale.animation(.easeIn))
         Rectangle()
           .foregroundColor(.blue)
-          .animation(.easeIn) // <-
-          .transition(.slide) // <-
+          .animation(.easeIn)
+          .transition(.asymmetric(insertion: .slide, removal: .opacity.animation(.easeIn)))
       }
     }
   }
